@@ -8,12 +8,18 @@ export default function Sidebar() {
       <NavigationMenu orientation="vertical">
         <NavigationMenuList className="flex flex-col gap-4">
           <NavigationMenuItem>
+              <Link href={"/"}>
             <NavigationMenuLink className="font-semibold">
-              <Link href={"/"}>Home</Link>
+              Home
             </NavigationMenuLink>
+              </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink className="font-semibold"><Link href={"/weekly"}>Weekly</Link></NavigationMenuLink>
+            <Link href={"/weekly"}>
+            <NavigationMenuLink className="font-semibold">
+              Weekly
+            </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
