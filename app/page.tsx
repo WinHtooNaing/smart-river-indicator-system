@@ -12,16 +12,20 @@ export default function HomePage() {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="md:hidden fixed top-0 left-0 w-full border-b bg-white flex items-center gap-2 p-2">
+      {/* <div className="md:hidden fixed top-0 left-0 w-full border-b bg-white flex items-center gap-2 p-2">
         <MobileMenu />
         <span className="font-bold">မြစ်ရေအနေအထား စောင့်ကြည့်မှု</span>
-      </div>
+      </div> */}
+      <div className="md:hidden fixed top-0 left-0 w-full border-b bg-white flex items-center gap-2 p-2 z-50">
+  <MobileMenu />
+  <span className="font-bold">မြစ်ရေအနေအထား စောင့်ကြည့်မှု</span>
+</div>
 
       {/* Main Content */}
       <div className="flex-1 p-4 mt-16 md:mt-20 grid md:grid-cols-[2fr_1fr] gap-4">
 
         <div>
-          <h2 className="text-lg font-bold mb-2">ယနေ့ အခြေအနေ</h2>
+          <h2 className="text-lg font-bold mb-2">ယနေ့ မြစ်ရေအခြေအနေ</h2>
           <ChartComponent />
         </div>
         <div className="flex flex-col gap-4">

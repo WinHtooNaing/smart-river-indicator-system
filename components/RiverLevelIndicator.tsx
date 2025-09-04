@@ -5,19 +5,19 @@ type RiverLevelIndicatorProps = {
 export default function RiverLevelIndicator({ value }: RiverLevelIndicatorProps) {
   // Auto color by value
   let color = "bg-red-500"; // Default: Danger
-  if (value > 10) {
+  if (value > 6) {
     color = "bg-green-500"; // Safe
-  } else if (value >= 3) {
+  } else if (value > 3) {
     color = "bg-yellow-500"; // Warning
   }
   let latestValue;
-  if(value >14){
+  if(value >15){
     latestValue = 1;
   }else{
      latestValue = 15 - value;
   }
   // value ကို % ပြောင်းဖို့ (max 18cm ဆိုပါစို့)
-  const percent = Math.min((latestValue / 16) * 100, 100);
+  const percent = Math.min((latestValue / 15) * 100, 100);
 
   
   return (

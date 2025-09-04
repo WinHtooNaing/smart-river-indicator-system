@@ -21,8 +21,8 @@ export default function ChartComponent() {
     return () => clearInterval(interval);
   },[])
 console.log(level);
-  // cm labels from 0 to 15
-  let labels = ["အရေးပေါ်အခြေအနေ","မြေပြင်",1,2,3,4,5,6,7,8,9,10,11,12,13,14,"other"];
+  // cm labels from 0 to 16
+  let labels = ["မြေပြင်",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
 
   return (
     <div className="w-full h-100 border rounded flex items-center justify-center bg-white p-4">
@@ -35,7 +35,7 @@ console.log(level);
         {/* CM Labels */}
         <div className="flex flex-col justify-between text-sm text-gray-700">
           {labels.map((label) => (
-            <span key={label}>{label} {label === "other" || label === "အရေးပေါ်အခြေအနေ" || label === "မြေပြင်" ? "" : "cm"}</span>
+            <span key={label}>{label} {label === "other"  || label === "မြေပြင်" ? "" : "cm"}</span>
           ))}
         </div>
       </div>

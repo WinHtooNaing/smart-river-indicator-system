@@ -12,9 +12,9 @@ export default function StatusCard({ status }: StatusCardProps) {
   }
 
   const labelMap = {
-    danger: "အရေးပေါ် အဆင့်အနေ",
-    warning: "သတိပြု အဆင့်အနေ",
-    safe: "ပုံမှန် အဆင့်အနေ"
+    danger: "အရေးပေါ် အခြေအနေ",
+    warning: "သတိပြုရန် အခြေအနေ",
+    safe: "ပုံမှန် အခြေအနေ"
   }
 
   return (

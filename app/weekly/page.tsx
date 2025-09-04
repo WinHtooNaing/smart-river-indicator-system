@@ -43,7 +43,7 @@ export default function WeeklyPage() {
   const data = levels.length === 7
     ? levels.map((item, idx) => ({
         day: days[idx],
-        cm: item.maxDistance
+        cm:16- item.maxDistance 
       }))
     : [];
 
@@ -68,7 +68,7 @@ export default function WeeklyPage() {
             <Card className="w-full h-[500px]">
                 
       <CardHeader>
-        <CardTitle>တစ်ပတ်တာ  အခြေအနေ</CardTitle>
+        <CardTitle>တစ်ပတ်တာ မြစ်ရေအခြေအနေ</CardTitle>
       </CardHeader>
       <CardContent className="h-full">
         <ResponsiveContainer width="100%" height="90%">
@@ -76,8 +76,10 @@ export default function WeeklyPage() {
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="day" />
             <YAxis
-              domain={[0, 20]}
-              label={{ value: "cm", angle: -90, position: "insideLeft" }}
+             domain={[0, 16]}
+  ticks={[2, 4, 6, 8, 10, 12, 14, 16]}
+  label={{ value: "cm", angle: -90, position: "insideLeft" }}
+    tickFormatter={(value) => value === 16 ? "မြေပြင်" : value}
             />
             <Tooltip />
             <Line
