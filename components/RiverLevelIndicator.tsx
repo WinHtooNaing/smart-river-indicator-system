@@ -7,7 +7,7 @@ export default function RiverLevelIndicator({ value }: RiverLevelIndicatorProps)
   let color = "bg-red-500"; // Default: Danger
   if (value > 6) {
     color = "bg-green-500"; // Safe
-  } else if (value > 3) {
+  } else if (value > 4) {
     color = "bg-yellow-500"; // Warning
   }
   let latestValue;

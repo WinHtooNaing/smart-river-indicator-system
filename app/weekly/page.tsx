@@ -29,7 +29,7 @@ export default function WeeklyPage() {
   
       fetchWaterLevels();
 
-          const interval = setInterval(fetchWaterLevels, 300000); // 5 minutes
+          const interval = setInterval(fetchWaterLevels, 30000000); // 5 minutes
 
       return () => clearInterval(interval);
     },[])
@@ -43,7 +43,7 @@ export default function WeeklyPage() {
   const data = levels.length === 7
     ? levels.map((item, idx) => ({
         day: days[idx],
-        cm:16- item.maxDistance 
+        cm:(16 - item.maxDistance) * 50
       }))
     : [];
 
@@ -77,7 +77,7 @@ export default function WeeklyPage() {
             <XAxis dataKey="day" />
             <YAxis
              domain={[0, 16]}
-  ticks={[2, 4, 6, 8, 10, 12, 14, 16]}
+  ticks={[100, 200, 300, 4000, 500, 600, 700, 800]}
   label={{ value: "cm", angle: -90, position: "insideLeft" }}
     tickFormatter={(value) => value === 16 ? "မြေပြင်" : value}
             />

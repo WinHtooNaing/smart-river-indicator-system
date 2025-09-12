@@ -16,13 +16,14 @@ export default function ChartComponent() {
 
     fetchWaterLevel();
 
-        const interval = setInterval(fetchWaterLevel, 180000); // 3 minutes
+        const interval = setInterval(fetchWaterLevel, 5000); // 5 seconds
 
     return () => clearInterval(interval);
   },[])
 console.log(level);
   // cm labels from 0 to 16
-  let labels = ["မြေပြင်",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+  // let labels = ["မြေပြင်",1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16];
+  let labels = [800,700,600,500,400,300,200,100,0];
 
   return (
     <div className="w-full h-100 border rounded flex items-center justify-center bg-white p-4">
@@ -35,7 +36,7 @@ console.log(level);
         {/* CM Labels */}
         <div className="flex flex-col justify-between text-sm text-gray-700">
           {labels.map((label) => (
-            <span key={label}>{label} {label === "other"  || label === "မြေပြင်" ? "" : "cm"}</span>
+            <span key={label}>{label} {"cm"}</span>
           ))}
         </div>
       </div>
