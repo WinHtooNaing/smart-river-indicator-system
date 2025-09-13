@@ -22,11 +22,14 @@ export default function Sidebar() {
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-              <NavigationMenuLink className="font-semibold" asChild>
-            <Link href={"/weekly"}>
-                တစ်ပတ်တာ မြစ်ရေအခြေအနေ
-            </Link>
-              </NavigationMenuLink>
+            <NavigationMenuLink className="font-semibold" asChild>
+              <Link href={"/weekly"}>တစ်ပတ်တာ မြစ်ရေအခြေအနေ</Link>
+            </NavigationMenuLink>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <NavigationMenuLink className="font-semibold" asChild>
+              <Link href={"/monthly"}>တစ်လတာ မြစ်ရေအခြေအနေ</Link>
+            </NavigationMenuLink>
           </NavigationMenuItem>
         </NavigationMenuList>
       </NavigationMenu>
