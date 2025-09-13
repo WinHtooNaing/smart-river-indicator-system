@@ -20,13 +20,12 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 export type MonthlyData = {
   date: string;
-  low: number;
-  high: number;
+  minDistance: number;
+  maxDistance: number;
 };
 
 interface DataTableProps {
@@ -55,13 +54,7 @@ export function DataTable({ columns, data }: DataTableProps) {
 
   return (
     <div className="space-y-4">
-      {/* Search */}
-      {/* <Input
-        placeholder="Search by date..."
-        value={filter ?? ""}
-        onChange={(e: any) => setFilter(e.target.value)}
-        className="max-w-sm"
-      /> */}
+      
       <br></br>
 
       {/* Table */}
@@ -95,10 +88,13 @@ export function DataTable({ columns, data }: DataTableProps) {
                 <TableRow key={row.id}>
                   {row.getVisibleCells().map((cell) => (
                     <TableCell key={cell.id} className="text-center">
-                      {flexRender(
+                      {/* {flexRender(
                         cell.column.columnDef.cell,
                         cell.getContext()
-                      )}
+                      )} */}
+                      {cell.column.id === "minDistance" || cell.column.id === "maxDistance"
+    ? (16 - Number(cell.getValue())) * 50 // your calculation
+    : flexRender(cell.column.columnDef.cell, cell.getContext())}
                     </TableCell>
                   ))}
                 </TableRow>

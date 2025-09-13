@@ -8,11 +8,11 @@ export const columns: ColumnDef<MonthlyData>[] = [
     header: "Date",
   },
   {
-    accessorKey: "low",
+    accessorKey: "minDistance",
     header: "အနိမ့်ဆုံး အခြေအနေ (cm)",
   },
   {
-    accessorKey: "high",
+    accessorKey: "maxDistance",
     header: "အမြင့်ဆုံး အခြေအနေ (cm)",
   },
 ];

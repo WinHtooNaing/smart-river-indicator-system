@@ -1,20 +1,28 @@
+"use client"
 import MobileMenu from "@/components/MobileMenu";
 import Sidebar from "@/components/Siderbar";
 import React from "react";
 import { DataTable, MonthlyData } from "@/components/data-table";
 import { columns } from "@/components/columns";
 
-const data: MonthlyData[] = [
-  { date: "2025-09-01", low: 2.3, high: 4.8 },
-  { date: "2025-09-02", low: 2.1, high: 4.5 },
-  { date: "2025-09-03", low: 2.0, high: 4.7 },
-  { date: "2025-09-04", low: 2.5, high: 4.9 },
-  { date: "2025-09-05", low: 2.2, high: 4.6 },
-  { date: "2025-09-06", low: 2.3, high: 4.8 },
-  { date: "2025-09-07", low: 2.1, high: 4.5 },
-];
+
 
 const MonthlyPage = () => {
+  const [data, setData] = React.useState<MonthlyData[]>([]);
+    const [loading, setLoading] = React.useState(true);
+  
+    React.useEffect(() => {
+      fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/distance/monthly`) // your API endpoint
+        .then((res) => res.json())
+        .then((data) => {
+          setData(data);
+          setLoading(false);
+        })
+        .catch((err) => {
+          console.error(err);
+          setLoading(false);
+        });
+    }, []);
   return (
     <div className="flex h-screen">
       {/* Desktop Sidebar */}
@@ -31,7 +39,36 @@ const MonthlyPage = () => {
       {/* Main Content */}
       <div className="flex-1 md:p-20 py-20 px-10">
         <h2 className="text-xl font-bold mb-4">တစ်လတာ မြစ်ရေအခြေအနေ</h2>
-        <DataTable columns={columns} data={data} />
+        {
+          loading ? (
+<div className="flex flex-col items-center justify-center py-20">
+    <svg
+      className="animate-spin h-12 w-12 text-blue-600"
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+    >
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      ></circle>
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+      ></path>
+    </svg>
+    <p className="mt-4 text-gray-700 text-lg font-medium">Loading data...</p>
+  </div>
+          ) : <>
+            <DataTable columns={columns} data={data} />
+          </>
+          
+        }
       </div>
     </div>
   );
